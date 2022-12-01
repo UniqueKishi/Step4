@@ -1,3 +1,3 @@
 # HIKR
 
-A a hiking app for COSC 341
+A hiking app for COSC 341
