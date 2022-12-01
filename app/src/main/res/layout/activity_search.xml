@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="184dp"
         android:layout_marginTop="44dp"
-        android:text="Search"
+        android:text="Search Trail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
