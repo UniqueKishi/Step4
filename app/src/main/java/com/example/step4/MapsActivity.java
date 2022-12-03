@@ -44,10 +44,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng kelowna = new LatLng(49.83131163670954, -119.47473757522033);
-        mMap.addMarker(new MarkerOptions().position(kelowna).title("Marker in Kelowna"));
+        LatLng kelowna = new LatLng(49.86335622106017, -119.46068117860816);
+
+        LatLng knox = new LatLng(49.908668262677146, -119.49113849753516);
+        mMap.addMarker(new MarkerOptions().position(knox).title("Knox Mountain"));
+        LatLng crawfordFalls = new LatLng(49.80493723366214, -119.45185181481705);
+        mMap.addMarker(new MarkerOptions().position(crawfordFalls).title("Crawford Falls"));
+        LatLng missionCreek = new LatLng(49.87877512092104, -119.43010895713549);
+        mMap.addMarker(new MarkerOptions().position(missionCreek).title("Mission Creek Regional Park"));
+        LatLng kloRegional = new LatLng(49.83039927921141, -119.3673504955017);
+        mMap.addMarker(new MarkerOptions().position(kloRegional).title("KLO Creek Regional Park"));
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kelowna));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 12));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
     }
 }
