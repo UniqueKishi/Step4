@@ -51,8 +51,8 @@
         android:id="@+id/spinner6"
         android:layout_width="207dp"
         android:layout_height="31dp"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="171dp" />
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="180dp" />
 
     <TextView
         android:id="@+id/textView13"
@@ -68,7 +68,7 @@
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
+        android:layout_marginStart="176dp"
         android:layout_marginTop="228dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -89,12 +89,14 @@
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="312dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457" />
 
     <Button
         android:id="@+id/button3"

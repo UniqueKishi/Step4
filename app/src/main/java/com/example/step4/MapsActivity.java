@@ -1,5 +1,7 @@
 package com.example.step4;
 
+import static com.example.step4.LoginPage.lOB;
+
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -13,6 +15,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.step4.databinding.ActivityMapsBinding;
+
+import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -45,18 +49,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+
+
+        lOB = lOB.read(getApplicationContext());
+
+        ArrayList<Trails> t = new ArrayList<Trails>();
+        ArrayList<Trails> listOfTrails;
+        listOfTrails = lOB.getTrailList();
+        if (listOfTrails == null || listOfTrails.isEmpty()) {
+
+            Trails t1 = new Trails( "Knox Mountain", "Easy", "Easy", "Mountains", 4.5, 4, 49.908668262677146, -119.46068117860816);
+            Trails t2 = new Trails( "Crawford Falls", "Easy", "Medium", "Waterfall", 5, 2, 49.80493723366214, -119.45185181481705);
+            Trails t3 = new Trails( "Mission Creek Regional Park", "Easy", "Easy", "River", 4, 17, 49.87877512092104, -119.43010895713549);
+            Trails t4 = new Trails( "KLO Creek Regional Park", "Easy", "Easy", "Mountains", 4.3, 3, 49.83039927921141, -119.3673504955017);
+            t.add(t1);
+            t.add(t2);
+           t.add(t3);
+            t.add(t4);
+
+            lOB = new TrailList(t);
+
+            lOB.writeToFile(lOB, getApplicationContext());
+
+        }
+
+
+
         // Add a marker in Sydney and move the camera
         LatLng kelowna = new LatLng(49.86335622106017, -119.46068117860816);
 
-        LatLng knox = new LatLng(49.908668262677146, -119.49113849753516);
-        mMap.addMarker(new MarkerOptions().position(knox).title("Knox Mountain"));
-        LatLng crawfordFalls = new LatLng(49.80493723366214, -119.45185181481705);
-        mMap.addMarker(new MarkerOptions().position(crawfordFalls).title("Crawford Falls"));
-        LatLng missionCreek = new LatLng(49.87877512092104, -119.43010895713549);
-        mMap.addMarker(new MarkerOptions().position(missionCreek).title("Mission Creek Regional Park"));
-        LatLng kloRegional = new LatLng(49.83039927921141, -119.3673504955017);
-        mMap.addMarker(new MarkerOptions().position(kloRegional).title("KLO Creek Regional Park"));
 
+        for (int i = 0; i < t.size(); i++) {
+            double lattemp, lontemp;
+            String nametemp;
+            Trails tempTrail = t.get(i);
+
+            lattemp = tempTrail.getLat();
+            lontemp = tempTrail.getLon();
+            nametemp = tempTrail.getName();
+
+            LatLng temp = new LatLng(lattemp, lontemp);
+            mMap.addMarker(new MarkerOptions().position(temp).title(nametemp));
+
+
+        }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kelowna));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -76,6 +113,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void addtrail(View view){
         Intent intent= new Intent(this, Addtrail.class);
         startActivity(intent);
-        finish();
+
     }
 }
