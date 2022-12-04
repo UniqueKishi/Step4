@@ -25,7 +25,7 @@
         android:onClick="logout"
         />
     <Button
-        android:id="@+id/addTrails"
+        android:id="@+id/addtrail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -33,7 +33,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
         android:text="Add trail"
-        android:onClick="addTrails"
+        android:onClick="addtrail"
         />
     <Button
         android:id="@+id/search"
@@ -56,7 +56,6 @@
         android:layout_marginBottom="50dp"
         android:src="@drawable/bookmark_24"
         android:text="Search"
-
         />
 
 

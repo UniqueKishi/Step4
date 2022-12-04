@@ -61,26 +61,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
     }
+
     public void search(View view){
-        Intent intent = new Intent(this, Search.class);
-        Bundle bundle = new Bundle();
-
-
+        Intent intent= new Intent(this, Search.class);
         startActivity(intent);
     }
 
-    public void addTrails(View view){
-        Intent intent = new Intent(this, AddTrail.class);
-        Bundle bundle = new Bundle();
-
-
-        startActivity(intent);
-    }
     public void logout(View view){
-        Intent intent = new Intent(this, LoginPage.class);
-        Bundle bundle = new Bundle();
+        Intent intent= new Intent(this, LoginPage.class);
+        startActivity(intent);
+        finish();
+    }
 
-
+    public void addtrail(View view){
+        Intent intent= new Intent(this, Addtrail.class);
         startActivity(intent);
         finish();
     }
