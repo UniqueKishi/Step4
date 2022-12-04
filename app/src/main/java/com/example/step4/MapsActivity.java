@@ -2,7 +2,9 @@ package com.example.step4;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -58,5 +60,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kelowna));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
+    }
+
+    public void search(View view){
+        Intent intent= new Intent(this, Search.class);
+        startActivity(intent);
+    }
+
+    public void logout(View view){
+        Intent intent= new Intent(this, LoginPage.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void addtrail(View view){
+        Intent intent= new Intent(this, Addtrail.class);
+        startActivity(intent);
+        finish();
     }
 }
