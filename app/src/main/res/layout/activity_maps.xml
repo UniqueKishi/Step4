@@ -27,9 +27,10 @@
         android:id="@+id/addtrail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
         android:text="Add trail"
         />
     <Button
@@ -39,7 +40,22 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_margin="5dp"
-        android:text=""
+        android:text="Search"
         />
+    <ImageButton
+        android:id="@+id/favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/bookmark_24"
+        android:text="Search"
+        />
+
+
+
 
 </RelativeLayout>
