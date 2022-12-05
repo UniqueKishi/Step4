@@ -38,7 +38,6 @@ public class trail_Description extends AppCompatActivity {
     }
 
     public void back(View view){
-        Intent intent= new Intent(this, Search.class);
-        startActivity(intent);
+        finish();
     }
 }

@@ -2,6 +2,7 @@ package com.example.step4;
 
 import static com.example.step4.LoginPage.lOB;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -13,11 +14,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.step4.databinding.ActivityMapsBinding;
 
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -50,7 +53,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
+        Map<String,String> mMarkerMap = new HashMap<>();
 
 
         lOB = lOB.read(getApplicationContext());
@@ -91,13 +94,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             nametemp = tempTrail.getName();
 
             LatLng temp = new LatLng(lattemp, lontemp);
-            mMap.addMarker(new MarkerOptions().position(temp).title(nametemp));
-
+            Marker marker = mMap.addMarker(new MarkerOptions().position(temp).title(nametemp));
+            mMarkerMap.put(marker.getId(), tempTrail.getName());
 
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kelowna));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                Trails trail = null;
+                for(int i = 0; i < listOfTrails.size(); i++){
+                    trail = listOfTrails.get(i);
+                    if(trail.name.equals(marker.getTitle())){
+                        break;
+                    }
+                }
+                advancedTrailView(trail);
+                return true;
+            }
+        });
 
     }
 
@@ -116,6 +134,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent= new Intent(this, Addtrail.class);
         startActivity(intent);
 
+
+    }
+
+    public void advancedTrailView(Trails trail){
+
+        Intent intent=new Intent(this, trail_Description.class);
+        Bundle bundle=new Bundle();
+        bundle.putString("name",trail.name);
+        bundle.putString("ease",trail.ease);
+        bundle.putString("diff",trail.difficulty);
+        bundle.putString("feats",trail.features);
+        bundle.putDouble("rev",trail.review);
+        bundle.putInt("length", trail.length);
+
+        intent.putExtras(bundle);
+        startActivity(intent);//starting activity
 
     }
 }
