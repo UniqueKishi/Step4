@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.step4.databinding.ActivityMapsBinding;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -97,6 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kelowna));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(kelowna, 11));
         mMap.getUiSettings().setZoomControlsEnabled(true);
+
     }
 
     public void search(View view){
@@ -113,6 +115,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void addtrail(View view){
         Intent intent= new Intent(this, Addtrail.class);
         startActivity(intent);
+
 
     }
 }

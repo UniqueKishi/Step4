@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Step4</string>
     <string name="title_activity_maps">MapsActivity</string>
+<string-array name="my_array">
+    <item>Waterfall</item>
+    <item>Mountain</item>
+    <item>River</item>
+    <item>Lake</item>
+    <item>None</item>
+
+
+
+</string-array>
+    <string-array name="lvl">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+
+
+
+
+    </string-array>
 </resources>
