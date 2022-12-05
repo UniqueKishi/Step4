@@ -39,7 +39,7 @@ public class TrailList implements Serializable{
             directory.mkdirs();
         }
 
-        String filename = "bookList.srl";
+        String filename = "trails.srl";
         ObjectOutput out = null;
 
         try {
@@ -61,7 +61,7 @@ public class TrailList implements Serializable{
         //make the object input stream and array list, along with create a string for the file name
         ObjectInputStream input = null;
         ArrayList<TrailList> lOB = null;
-        String filename = "bookList.srl";
+        String filename = "trails.srl";
         //open the file you will read from
         File direct = new File(context.getFilesDir().getAbsolutePath() + File.separator + "serlization");
 

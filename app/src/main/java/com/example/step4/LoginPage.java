@@ -16,6 +16,7 @@ public class LoginPage extends AppCompatActivity {
 
     static ArrayList<Account> accounts;
     static AccountList lOA;
+    static TrailList lOB ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
