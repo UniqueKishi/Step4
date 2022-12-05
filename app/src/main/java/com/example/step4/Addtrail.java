@@ -55,6 +55,11 @@ Spinner spinner, spinner1, spinner2;
 
     }
 
+    public void back(View view){
+        Intent intent= new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
     public void submit(View view){
 
         review = Math.floor(Math.random() * 5);

@@ -11,6 +11,14 @@
 
 
 </string-array>
+
+    <string-array name="searchCondItems">
+        <item>Ease</item>
+        <item>Difficulty</item>
+        <item>Features</item>
+        <item>Length</item>
+    </string-array>
+
     <string-array name="lvl">
         <item>Easy</item>
         <item>Medium</item>
