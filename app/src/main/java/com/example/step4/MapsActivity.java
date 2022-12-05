@@ -80,10 +80,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng kelowna = new LatLng(49.86335622106017, -119.46068117860816);
 
 
-        for (int i = 0; i < t.size(); i++) {
+        for (int i = 0; i < listOfTrails.size(); i++) {
             double lattemp, lontemp;
             String nametemp;
-            Trails tempTrail = t.get(i);
+            Trails tempTrail = listOfTrails.get(i);
 
             lattemp = tempTrail.getLat();
             lontemp = tempTrail.getLon();
