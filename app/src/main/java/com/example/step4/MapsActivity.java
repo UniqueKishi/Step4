@@ -104,6 +104,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
+
             public boolean onMarkerClick(@NonNull Marker marker) {
                 Trails trail = null;
                 for(int i = 0; i < listOfTrails.size(); i++){
@@ -115,6 +116,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 advancedTrailView(trail);
                 return true;
             }
+
+
         });
 
     }
