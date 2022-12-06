@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +32,10 @@ public class LoginPage extends AppCompatActivity {
         EditText pass=(EditText) findViewById(R.id.pass);
         String userS=user.getText().toString();
         String passS=pass.getText().toString();//getting user and pass fields
+
+        RadioGroup rG = (RadioGroup) findViewById(R.id.radioGroup);
+        EditText fName = (EditText) findViewById(R.id.fstname);
+        String fstName = fName.getText().toString();
 
         lOA = lOA.readAccs(getApplicationContext()); //get list of accounts
         accounts = lOA.getAccountList();
@@ -73,6 +78,11 @@ public class LoginPage extends AppCompatActivity {
         EditText pass=(EditText) findViewById(R.id.pass);
         String userS=user.getText().toString();
         String passS=pass.getText().toString();//getting user and pass fields
+        RadioGroup rG = (RadioGroup) findViewById(R.id.radioGroup);
+        EditText fName = (EditText) findViewById(R.id.fstname);
+        String fstName = fName.getText().toString();
+        String gender;
+
         lOA = lOA.readAccs(getApplicationContext()); //get list of accounts
         accounts = lOA.getAccountList();
         boolean makeAcc = false;  //if set to true there is already an account with this user so don't make one
@@ -91,7 +101,20 @@ public class LoginPage extends AppCompatActivity {
 
         } else if(makeAcc == false){
             //If there is no user with the given username than make account and log them in
-            Account newA = new Account(userS, passS, false);
+            if(rG.getCheckedRadioButtonId() != -1){
+
+                if(rG.getCheckedRadioButtonId() == R.id.male){
+                    //If male is selected send the gender
+                    gender = "Male";
+                }else{
+                    //Otherwise send Female
+                    gender = "Female";
+                }
+            }else{
+                //If nothing is selected say not given
+                gender = "Not given";
+            }
+            Account newA = new Account(userS, passS, fstName, gender);
             accounts.add(newA);
             lOA = new AccountList(accounts);
             //rewrite the list so it saves with the new account
@@ -118,7 +141,7 @@ public class LoginPage extends AppCompatActivity {
 
         if(listOfAccounts == null ||listOfAccounts.isEmpty()){
             Account admin = new Account("admin", "pass", true);
-            Account test = new Account("Test", "TestPass");
+            Account test = new Account("Test", "TestPass", false);
             accounts.add(admin);
             accounts.add(test);
             lOA = new AccountList(accounts);

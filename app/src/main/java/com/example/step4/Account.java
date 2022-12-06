@@ -4,13 +4,14 @@ import java.io.Serializable;
 
 //This will be used to make and store information about accounts
 public class Account implements Serializable{
-    String userName, passWord;
+    String userName, passWord, name, gender;
     Boolean isAdmin;
 
     public Account() {
         userName = null;
         passWord = null;
-        isAdmin = false;
+        name = null;
+        gender = null;
     }
 
     public String getPassWord() {
@@ -22,9 +23,11 @@ public class Account implements Serializable{
     }
 
     //This will be used for creating the account when the user gives information
-    public Account(String userName,String passWord){
+    public Account(String userName,String passWord, String name, String gender){
         this.userName = userName;
         this.passWord = passWord;
+        this.name = name;
+        this.gender = gender;
         isAdmin = false;
     }
 
