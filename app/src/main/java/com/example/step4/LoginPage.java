@@ -123,6 +123,8 @@ public class LoginPage extends AppCompatActivity {
             Intent intent= new Intent(this, MapsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("userN" , userS);
+            bundle.putString("fstName",fstName);
+            bundle.putString("gender",gender);
             intent.putExtras(bundle);
             startActivity(intent);
         }

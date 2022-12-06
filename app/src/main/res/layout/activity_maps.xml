@@ -35,8 +35,9 @@
         android:text="Add trail"
         android:onClick="addtrail"
         />
+
     <Button
-        android:id="@+id/search"
+        android:id="@+id/Account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -54,8 +55,9 @@
 
         android:layout_marginLeft="2dp"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/bookmark_24"
+        android:src="@drawable/baseline_account_circle_18"
         android:text="Search"
+        android:onClick="account"
         />
 
 

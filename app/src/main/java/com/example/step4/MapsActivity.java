@@ -26,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    String username, name, gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Intent intent=getIntent();
+        Bundle bundle=intent.getExtras();
+        username = bundle.getString("userN");
+        name = bundle.getString("fstName");
+        gender = bundle.getString("gender");
+
+
     }
 
     /**
@@ -135,6 +143,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void addtrail(View view){
         Intent intent= new Intent(this, Addtrail.class);
+        startActivity(intent);
+
+
+    }
+    public void account(View view){
+        Intent intent= new Intent(this, Account_info.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("username" , username);
+        bundle.putString("name",name);
+        bundle.putString("gender",gender);
+        intent.putExtras(bundle);
         startActivity(intent);
 
 
